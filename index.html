@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Vida Minerva 10-03</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #e8ecef;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .page {
+            width: 800px;
+            background: #ffffff;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            padding: 20px 25px;
+            color: #111;
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-text {
+            color: #0b3c7d;
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .logo-code {
+            color: #0b3c7d;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 2px;
+        }
+
+        .stamp-original {
+            border: 3px double #2b6cb0;
+            border-radius: 50%;
+            width: 90px;
+            height: 55px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #2b6cb0;
+            font-weight: bold;
+            font-size: 11px;
+            transform: rotate(-8deg);
+            background-color: #ebf8ff;
+        }
+
+        .title-box {
+            border: 2px solid #0b3c7d;
+            border-radius: 12px;
+            padding: 8px 20px;
+            text-align: center;
+            background: #ffffff;
+        }
+
+        .title-box h1 {
+            color: #0b3c7d;
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .title-box p {
+            color: #1a365d;
+            font-size: 11px;
+            font-weight: bold;
+            margin-top: 2px;
+        }
+
+        /* TOP METADATA ROW */
+        .top-meta-grid {
+            display: grid;
+            grid-template-columns: 2.2fr 3.8fr 1.5fr;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .field-box {
+            border: 1px solid #a0aec0;
+            border-radius: 4px;
+            padding: 4px 8px;
+            background-color: #f7fafc;
+            min-height: 38px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .field-label {
+            font-size: 9.5px;
+            color: #2d3748;
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .field-value {
+            font-size: 13px;
+            color: #000;
+            font-weight: normal;
+        }
+
+        .date-inputs {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 13px;
+        }
+
+        .date-part {
+            background: #fff;
+            border: 1px solid #cbd5e0;
+            border-radius: 3px;
+            padding: 1px 6px;
+            text-align: center;
+        }
+
+        /* SECTION HEADERS */
+        .section-header {
+            background-color: #1a5fb4;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            padding: 4px 0;
+            border-radius: 3px;
+            margin: 10px 0 6px 0;
+            letter-spacing: 0.5px;
+        }
+
+        /* SECTION I GRID */
+        .section-i-layout {
+            display: grid;
+            grid-template-columns: 1fr 160px;
+            gap: 10px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+
+        .span-2 {
+            grid-column: span 2;
+        }
+
+        .photo-box {
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+            text-align: center;
+        }
+
+        .photo-container {
+            width: 110px;
+            height: 135px;
+            border: 1px solid #a0aec0;
+            background-color: #edf2f7;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-caption {
+            font-size: 9px;
+            color: #4a5568;
+            margin-top: 4px;
+        }
+
+        /* BLANK FORM SECTIONS */
+        .blank-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .blank-grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .blank-grid-4 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .radio-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 11px;
+            margin-top: 4px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .radio-circle {
+            width: 12px;
+            height: 12px;
+            border: 1.5px solid #4a5568;
+            border-radius: 50%;
+            background: #fff;
+            display: inline-block;
+        }
+
+        .empty-input {
+            width: 100%;
+            height: 18px;
+            background: transparent;
+            border: none;
+        }
+
+        .objective-box {
+            border: 1px solid #a0aec0;
+            border-radius: 4px;
+            min-height: 50px;
+            background-color: #ffffff;
+            padding: 6px;
+        }
+
+        /* PRINT MEDIA ADJUSTMENTS */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .page {
+                border: none;
+                box-shadow: none;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+    <!-- HEADER -->
+    <div class="header">
+        <div class="brand-logo">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="#a81c1c">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+            </svg>
+            <div>
+                <div class="logo-text">minerva</div>
+                <div class="logo-code">10-03</div>
+            </div>
+        </div>
+
+        <div class="stamp-original">
+            <span>MINERVA</span>
+            <span>ORIGINAL</span>
+            <span style="font-size: 7px;">ORIGINAL WEB</span>
+        </div>
+
+        <div class="title-box">
+            <h1>HOJA DE VIDA</h1>
+            <p>PARA SOLICITUD DE EMPLEO</p>
+        </div>
+    </div>
+
+    <!-- METADATA ROW -->
+    <div class="top-meta-grid">
+        <div class="field-box">
+            <span class="field-label">Fecha de diligenciamiento</span>
+            <div class="date-inputs">
+                <span class="date-part">20</span> / <span class="date-part">09</span> / <span class="date-part">2026</span>
+            </div>
+        </div>
+        <div class="field-box">
+            <span class="field-label">Empleo o cargo al que aspira</span>
+            <span class="field-value">Programación de Software</span>
+        </div>
+        <div class="field-box">
+            <span class="field-label">Código cargo</span>
+            <div class="empty-input"></div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN I. INFORMACIÓN GENERAL -->
+    <div class="section-header">I. INFORMACIÓN GENERAL</div>
+    
+    <div class="section-i-layout">
+        <div class="info-grid">
+            <div class="field-box">
+                <span class="field-label">Apellido(s) del aspirante</span>
+                <span class="field-value">Mena Mena</span>
+            </div>
+            <div class="field-box">
+                <span class="field-label">Nombre(s) del aspirante</span>
+                <span class="field-value">Léider Andrés</span>
+            </div>
+
+            <div class="field-box">
+                <span class="field-label">Fecha de nacimiento</span>
+                <div class="date-inputs">
+                    <span class="date-part">03</span> / <span class="date-part">03</span> / <span class="date-part">2010</span>
+                </div>
+            </div>
+            <div class="field-box">
+                <span class="field-label">Lugar de nacimiento</span>
+                <span class="field-value">Medellín</span>
+            </div>
+
+            <div class="field-box">
+                <span class="field-label">Dirección domicilio / Barrio</span>
+                <span class="field-value">Calle 80C # 42-27</span>
+            </div>
+            <div class="field-box">
+                <span class="field-label">Ciudad</span>
+                <span class="field-value">Bello</span>
+            </div>
+
+            <div class="field-box">
+                <span class="field-label">Teléfono</span>
+                <span class="field-value">3042256121</span>
+            </div>
+            <div class="field-box">
+                <span class="field-label">N° Celular</span>
+                <span class="field-value">3042256121</span>
+            </div>
+
+            <div class="field-box">
+                <span class="field-label">Correo electrónico</span>
+                <span class="field-value">leiderandresmenamena950@gmail.com</span>
+            </div>
+            <div class="field-box">
+                <span class="field-label">Nacionalidad</span>
+                <span class="field-value">Colombiana</span>
+            </div>
+
+            <div class="field-box span-2">
+                <div style="display: grid; grid-template-columns: 2fr 1.5fr 1fr; gap: 8px;">
+                    <div>
+                        <span class="field-label">Profesión, ocupación u oficio</span>
+                        <div class="field-value">Estudiante</div>
+                    </div>
+                    <div>
+                        <span class="field-label">(*) Estado civil</span>
+                        <div class="field-value">Soltero</div>
+                    </div>
+                    <div>
+                        <span class="field-label">Años exp. laboral</span>
+                        <div class="field-value">11</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="photo-box">
+            <div class="photo-container">
+                <img src="img/photo.jpg" alt="Fotografía reciente">
+            </div>
+            <div class="photo-caption">Foto tipo documento<br>Tamaño 3x4 cm</div>
+        </div>
+    </div>
+
+    <!-- DOCUMENTACIÓN (COMPLETAMENTE EN BLANCO) -->
+    <div class="section-header">DOCUMENTACIÓN</div>
+    
+    <div class="blank-grid-3">
+        <div class="field-box">
+            <span class="field-label">Cédula de ciudadanía: N°</span>
+            <div class="empty-input"></div>
+        </div>
+        <div class="field-box">
+            <span class="field-label">Libreta militar N°</span>
+            <div class="empty-input"></div>
+        </div>
+        <div class="field-box">
+            <span class="field-label">Primera clase / Segunda clase</span>
+            <div class="radio-group">
+                <div class="radio-item"><span class="radio-circle"></span> Primera</div>
+                <div class="radio-item"><span class="radio-circle"></span> Segunda</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-grid-3">
+        <div class="field-box">
+            <span class="field-label">Extranjería: N°</span>
+            <div class="empty-input"></div>
+        </div>
+        <div class="field-box">
+            <span class="field-label">Distrito N°</span>
+            <div class="empty-input"></div>
+        </div>
+        <div class="field-box">
+            <span class="field-label">Expedida en</span>
+            <div class="empty-input"></div>
+        </div>
+    </div>
+
+    <div class="blank-grid-3">
+        <div class="field-box">
+            <span class="field-label">Tarjeta profesional N°</span>
+            <div class="empty-input"></div>
+        </div>
+        <div class="field-box">
+            <span class="field-label">¿Tiene vehículo?</span>
+            <div class="radio-group">
+                <div class="radio-item"><span class="radio-circle"></span> Sí</div>
+                <div class="radio-item"><span class="radio-circle"></span> No</div>
+            </div>
+        </div>
+        <div class="field-box">
+            <span class="field-label">Licencia de conducción N° / Categoría</span>
+            <div class="empty-input"></div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN II. INFORMACIÓN PERSONAL (COMPLETAMENTE EN BLANCO) -->
+    <div class="section-header">II. INFORMACIÓN PERSONAL</div>
+
+    <div class="blank-grid-2">
+        <div class="field-box">
+            <span class="field-label">¿Está trabajando actualmente?</span>
+            <div class="radio-group">
+                <div class="radio-item"><span class="radio-circle"></span> Sí</div>
+                <div class="radio-item"><span class="radio-circle"></span> No</div>
+            </div>
+        </div>
+        <div class="field-box">
+            <span class="field-label">¿En qué empresa?</span>
+            <div class="empty-input"></div>
+        </div>
+    </div>
+
+    <div class="blank-grid-2">
+        <div class="field-box">
+            <span class="field-label">¿Trabaja antes en esta empresa?</span>
+            <div class="radio-group">
+                <div class="radio-item"><span class="radio-circle"></span> Sí</div>
+                <div class="radio-item"><span class="radio-circle"></span> No</div>
+            </div>
+        </div>
+        <div class="field-box">
+            <span class="field-label">¿Le reconocen alguien de esta empresa?</span>
+            <div class="radio-group">
+                <div class="radio-item"><span class="radio-circle"></span> Sí</div>
+                <div class="radio-item"><span class="radio-circle"></span> No</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-grid-2">
+        <div class="field-box">
+            <span class="field-label">¿Tiene parientes que trabajan en la empresa?</span>
+            <div class="radio-group">
+                <div class="radio-item"><span class="radio-circle"></span> Sí</div>
+                <div class="radio-item"><span class="radio-circle"></span> No</div>
+            </div>
+        </div>
+        <div class="field-box">
+            <span class="field-label">¿Cómo tuvo conocimiento de la existencia de la vacante?</span>
+            <div class="radio-group">
+                <div class="radio-item"><span class="radio-circle"></span> Anuncio</div>
+                <div class="radio-item"><span class="radio-circle"></span> Amigo</div>
+                <div class="radio-item"><span class="radio-circle"></span> Otro</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-grid-2">
+        <div class="field-box">
+            <span class="field-label">¿En qué ciudad o población ha vivido la mayor parte de su vida?</span>
+            <div class="empty-input"></div>
+        </div>
+        <div class="field-box">
+            <span class="field-label">¿Aceptaría trabajar en una ciudad distinta a la contratada?</span>
+            <div class="radio-group">
+                <div class="radio-item"><span class="radio-circle"></span> Sí</div>
+                <div class="radio-item"><span class="radio-circle"></span> No</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-grid-2">
+        <div class="field-box">
+            <span class="field-label">¿Actualmente recibe algún ingreso adicional?</span>
+            <div class="radio-group">
+                <div class="radio-item"><span class="radio-circle"></span> Sí</div>
+                <div class="radio-item"><span class="radio-circle"></span> No</div>
+            </div>
+        </div>
+        <div class="field-box">
+            <span class="field-label">¿Cuánto suman sus obligaciones económicas mensuales?</span>
+            <div class="empty-input"></div>
+        </div>
+    </div>
+
+    <!-- OBJETIVO (EN BLANCO) -->
+    <div class="section-header">OBJETIVO</div>
+    <div class="objective-box">
+        <span class="field-label" style="display: block; margin-bottom: 4px;">Mencione brevemente qué expectativas tiene a nivel laboral, educativo y personal e indique cómo planea hacerlas realidad.</span>
+    </div>
+
+</div>
+
+</body>
+</html>
